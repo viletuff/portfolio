@@ -1,0 +1,516 @@
+@font-face {
+            font-family: "Roboto Monoface";
+            src: url('/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
+            font-weight: 100;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Roboto Monoface";
+            src: url('/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Roboto Monoface";
+            src: url('/fonts/Roboto_Mono/static/RobotoMono-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Roboto Monoface";
+            src: url('/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        /* WINKY FACE */
+        @font-face {
+            font-family: "Winky Rough";
+            src: url('/fonts/Winky_Rough/static/WinkyRough-Bold.ttf') format('truetype');
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Winky Rough";
+            src: url('/fonts/Winky_Rough/static/WinkyRough-Medium.ttf') format('truetype');
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Winky Rough";
+            src: url('/fonts/Winky_Rough/static/WinkyRough-Medium.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Winky Rough";
+            src: url('/fonts/Winky_Rough/static/WinkyRough-Light.ttf') format('truetype');
+            font-weight: 100;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "Winky Rough";
+            src: url('/fonts/Winky_Rough/static/WinkyRough-LightItalic.ttf') format('truetype');
+            font-weight: 100;
+            font-style: italic;
+        }
+
+        /* ==========================================================================
+   2. GENERAL LAYOUT & BODY
+   ========================================================================== */
+        /* Styles for the main page structure, background, and default spacing. */
+
+        body {
+            margin: 0;
+            font-family: "Roboto monoface", sans-serif;
+            font-weight: 100;
+            background: #f0f0f0;
+            /* This MUST match the expanded header's height to prevent content from hiding. */
+            padding-top: 160px;
+        }
+
+        .gallery {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            display: block;
+            border-radius: 4px;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .main-footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #ccc;
+        }
+
+        /* ==========================================================================
+   3. HEADER - DEFAULT (EXPANDED) STATE
+   ========================================================================== */
+        /* Styles for the header as it appears on page load. */
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            background: #d3f1d0;
+            border-bottom: 5px Dashed #6cb38e;
+            z-index: 1000;
+            transition: height 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 2rem;
+            box-sizing: border-box;
+            transition: justify-content 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- Left Side: Branding & Nav --- */
+        .branding-nav-cluster {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: flex-direction 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: visible;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            
+        }
+
+        .logo img {
+            height: 2.4rem;
+            width: 2.4rem;
+            transition: transform 0.5s ease-in-out;
+            overflow: visible;
+            cursor: pointer;
+
+        }
+
+        
+
+        .logo-text {
+            white-space: nowrap;
+            overflow: visible;
+            max-width: 300px;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-area h1,
+        .logo-area h2 {
+            margin: 0;
+            font-family: "Winky Rough";
+           
+            overflow: visible;
+            /* Performance hint for the browser */
+            will-change: transform;
+        }
+        
+        /* Added this rule for the new inner span */
+        .logo-area h1 span, .logo-area h2 span {
+            display: inline-block; /* Allows transform to work on the span */
+        }
+
+        .logo-area h1 {
+            font-size: 2.5rem;
+            margin-bottom: -0.5rem;
+            font-weight: 600;
+            transition: transform 0.35s ease-in-out;
+            cursor: pointer;
+        }
+
+        .logo-area h2 {
+            font-size: 1.4rem;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .main-nav {
+            padding-top: 1rem;
+            transition: padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .main-nav a {
+            position: relative;
+            margin-right: 3rem;
+            color: black;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 1.3rem;
+            font-family: "Roboto Monoface";
+        }
+
+        /* --- Right Side: Contact Area --- */
+        .contact-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-area p {
+            margin: 0 0 0.5rem 0;
+            max-height: 50px;
+            color: black;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 1.3rem;
+            font-family: "Roboto Monoface";
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .icon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 5px;
+            width: 85px;
+            /* (40px icon * 2) + 5px gap */
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), flex-wrap 0s 0.4s;
+        }
+
+        .icon-grid a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .icon-grid img {
+            width: 1.8rem;
+            height: 1.8rem;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* ==========================================================================
+   4. HEADER - COLLAPSED STATE (.scrolled)
+   ========================================================================== */
+        /* All style changes that apply ONLY when the header is collapsed. */
+
+.main-header.scrolled {
+    height: 63px;
+}
+
+.main-header.scrolled .header-container {
+    justify-content: center;
+    gap: 3rem;
+}
+
+.main-header.scrolled .branding-nav-cluster {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.main-header.scrolled .logo-text {
+    opacity: 0;
+    max-width: 0;
+}
+
+.main-header.scrolled .main-nav {
+    padding-top: 0;
+}
+
+.main-header.scrolled .contact-area p {
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.main-header.scrolled .icon-grid {
+    flex-wrap: nowrap;
+    width: 175px; /* (40px icon * 4) + (5px gap * 3) */
+}
+        /* ==========================================================================
+   5. HOVER EFFECTS & ANIMATIONS
+   ========================================================================== */
+
+        /* --- Hover Effects --- */
+        .main-nav a:hover::after {
+            opacity: 1;
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            opacity: 0;
+            transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .icon-grid a:hover,
+        .logo img:hover {
+            transform: scale(1.07);
+            animation: idleAnimation 1.5s ease-in-out 0.2s infinite;
+        }
+
+        /* --- FIX STARTS HERE --- */
+
+        /* The h1/h2 element now only handles the initial smooth scaling */
+        .logo-area h1:hover {
+            transform: scale(1.008);
+        }
+
+        /* The inner span handles the infinite idle animation while hovered */
+        .logo-area h1:hover span {
+            animation: idleAnimationText 2s ease-in-out 0.5s infinite;
+        }
+
+        /* --- FIX ENDS HERE --- */
+
+
+        .gallery img:hover {
+            transform: scale(1.003);
+            /* Apply the animation WITH A DELAY to let the initial transition finish */
+            animation: idleAnimationGallery 2s ease-in-out 0.3s infinite;
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes idleAnimation {
+            0%,
+            100% {
+                transform: scale(1.07);
+            }
+
+            50% {
+                transform: scale(1.10);
+            }
+        }
+
+        @keyframes idleAnimationText {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.01);
+            }
+        }
+
+        @keyframes idleAnimationGallery {
+            0%,
+            100% {
+                transform: scale(1.003);
+                /* Now matches the hover state */
+            }
+
+            50% {
+                transform: scale(1.01);
+            }
+        }
+
+        /* ==========================================================================
+   6. MISCELLANEOUS (SVG Filter)
+   ========================================================================== */
+
+        svg {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: visible;
+        }
+
+        .distortedText {
+            /* Applying the SVG filter defined in the HTML body */
+            filter: url(#perlin-noise-filter);
+        }
+
+        .aboutContent {
+    max-width: 1200px; /* Increased width to better fit two columns */
+    margin: 4rem auto;   /* Centers the block and adds vertical space */
+    padding: 2rem;
+    display: flex;       /* This is the key: it enables the two-column layout */
+    align-items: flex-start; /* Aligns items to the top */
+    gap: 3rem;           /* Creates space between the text and image */
+}
+
+/* This rule styles the text column on the left */
+.aboutTextColumn {
+    flex: 2; /* Gives the text column twice as much space as the image */
+}
+
+/* This rule styles the image column on the right */
+.aboutImageColumn {
+    flex: 1; /* The image takes up the remaining space */
+}
+
+/* This ensures the image inside the column is responsive */
+.aboutImageColumn img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0px;
+}
+
+/* Styles for your name/pronunciation block */
+.nameBlock {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.nameBlock h1,
+.nameBlock p {
+    margin: 0;
+}
+
+/* --- Responsive Stacking for Mobile --- */
+/* This is crucial for making your layout look good on phones. */
+@media (max-width: 768px) {
+    .aboutContent {
+        flex-direction: column; /* Stacks the columns vertically on small screens */
+    }
+}
+
+/* CAROSELL*/
+.carousel {
+    position: relative;
+    max-width: 70%;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+/* This container hides the off-screen slides */
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+
+/* This is the element that moves. It's a flex container for the slides. */
+.carousel-track {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    display: flex;
+    /* This transition creates the smooth sliding animation */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Each slide takes up the full width of the container */
+.carousel-slide {
+
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    
+}
+
+/* Styles for the navigation arrow buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: 0.1s;
+}
+
+.carousel-button:hover {
+    background: white;
+}
+
+.carousel-button--left {
+    left: 3rem;
+}
+
+.carousel-button--right {
+    right: 3rem;
+}

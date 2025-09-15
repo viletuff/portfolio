@@ -1,0 +1,81 @@
+<header class="main-header">
+        <div class="header-container">
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <defs>
+            <!-- 
+              Added color-interpolation-filters="sRGB" for better color blending,
+              which contributes to a smoother appearance.
+            -->
+            <filter id="perlin-noise-filter" color-interpolation-filters="sRGB">
+                <!-- 
+                  feTurbulence generates Perlin noise. 
+                  The 'baseFrequency' controls the "waviness" of the noise.
+                  We animate this value to create the moving distortion effect.
+                -->
+                <feTurbulence 
+                    type="fractalNoise" 
+                    baseFrequency="0.005 0.009" 
+                    numOctaves="3" 
+                    result="noise"
+                    seed="0"
+                >
+                    <animate 
+                        attributeName="baseFrequency" 
+                        dur="5s" 
+                        values="0.01 0.02; 0.008 0.012; 0.01 0.02" 
+                        repeatCount="indefinite"
+                    />
+                </feTurbulence>
+                <!--
+                  feDisplacementMap uses the generated noise to displace the pixels.
+                -->
+                <feDisplacementMap 
+                    in="SourceGraphic" 
+                    in2="noise" 
+                    scale="10" 
+                    xChannelSelector="R" 
+                    yChannelSelector="G" 
+                />
+                <!--
+                  feGaussianBlur is now animated to create a pulsing blur effect.
+                  The 'stdDeviation' value loops between 0.5 and 1.5.
+                -->
+              
+            </filter>
+        </defs>
+    </svg>
+
+            
+            <div class="branding-nav-cluster">
+                <a href="/" style="text-decoration: none; color: inherit;">
+                    <div class="logo-area">
+                       
+                        <div class="logo">
+                <img src="/brand icons/plant.svg">
+                        </div>
+                            
+                      
+                        <div class="logo-text">
+                            <h1 class="distortedText">Lily Ann Caballero</h1>
+                            <h2 >illustrator</h2>
+                        </div>
+                    </div>
+                </a>
+                <nav class="main-nav">
+                    <a href="/about.html">About</a>
+                    <a href="/finished.html">Finished</a>
+                    <a href="/lines.html">Lines</a>
+                </nav>
+            </div>
+
+            <div class="contact-area">
+                <p>Contact</p>
+                <div class="icon-grid">
+                    <a href="https://softerlily.artstation.com" aria-label="artstation"><img src="/brand icons/artstation.png" alt="Artstation" title="softerlily.artstation.com"></a>
+                    <a href="https://instagram.com/softerlily" aria-label="instagram"><img src="/brand icons/instagram.svg" alt="Instagram" title="instagram.com/softerlily"></a>
+                    <a href="mailto:examplQ@gmail.com" aria-label="softerlily@gmail.com"><img src="/brand icons/mail.svg" alt="Email" title="softerlily@gmail.com"></a>
+                    <a href="https://softerlily.bsky.app" aria-label="softerlily.bsky.app"><img src="/brand icons/bsky.svg" alt="Bluesky" title="softerlily.bsky.app"></a>
+                </div>
+            </div>
+        </div>
+    </header>
