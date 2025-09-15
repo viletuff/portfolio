@@ -1,67 +1,198 @@
 @font-face {
-            font-family: "Roboto Monoface";
-            src: url('fonts/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
-            font-weight: 100;
-            font-style: normal;
-        }
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 400;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-MediumItalic.woff2") format("woff2"), url("RobotoMono-MediumItalic.woff") format("woff"), url("RobotoMono-MediumItalic.ttf") format("truetype");
+}
 
-        @font-face {
-            font-family: "Roboto Monoface";
-            src: url('fonts/Roboto_Mono/static/RobotoMono-Medium.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-        }
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 600;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-Bold.woff2") format("woff2"), url("RobotoMono-Bold.woff") format("woff"), url("RobotoMono-Bold.ttf") format("truetype");
+}
 
-        @font-face {
-            font-family: "Roboto Monoface";
-            src: url('fonts/Roboto_Mono/static/RobotoMono-Light.ttf') format('truetype');
-            font-weight: 300;
-            font-style: normal;
-        }
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 600;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-BoldItalic.woff2") format("woff2"), url("RobotoMono-BoldItalic.woff") format("woff"), url("RobotoMono-BoldItalic.ttf") format("truetype");
+}
 
-        @font-face {
-            font-family: "Roboto Monoface";
-            src: url('fonts/Roboto_Mono/static/RobotoMono-Bold.ttf') format('truetype');
-            font-weight: 800;
-            font-style: normal;
-        }
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 0;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-ExtraLight.woff2") format("woff2"), url("RobotoMono-ExtraLight.woff") format("woff"), url("RobotoMono-ExtraLight.ttf") format("truetype");
+}
 
-        /* WINKY FACE */
-        @font-face {
-            font-family: "Winky Rough";
-            src: url('fonts/Winky_Rough/static/WinkyRough-Bold.ttf') format('truetype');
-            font-weight: 800;
-            font-style: normal;
-        }
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 0;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-ExtraLightItalic.woff2") format("woff2"), url("RobotoMono-ExtraLightItalic.woff") format("woff"), url("RobotoMono-ExtraLightItalic.ttf") format("truetype");
+}
 
-        @font-face {
-            font-family: "Winky Rough";
-            src: url('fonts/Winky_Rough/static/WinkyRough-Medium.ttf') format('truetype');
-            font-weight: 600;
-            font-style: normal;
-        }
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 300;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-Italic.woff2") format("woff2"), url("RobotoMono-Italic.woff") format("woff"), url("RobotoMono-Italic.ttf") format("truetype");
+}
 
-        @font-face {
-            font-family: "Winky Rough";
-            src: url('fonts/Winky_Rough/static/WinkyRough-Medium.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-        }
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 100;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-Light.woff2") format("woff2"), url("RobotoMono-Light.woff") format("woff"), url("RobotoMono-Light.ttf") format("truetype");
+}
 
-        @font-face {
-            font-family: "Winky Rough";
-            src: url('fonts/Winky_Rough/static/WinkyRough-Light.ttf') format('truetype');
-            font-weight: 100;
-            font-style: normal;
-        }
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 100;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-LightItalic.woff2") format("woff2"), url("RobotoMono-LightItalic.woff") format("woff"), url("RobotoMono-LightItalic.ttf") format("truetype");
+}
 
-        @font-face {
-            font-family: "Winky Rough";
-            src: url('fonts/Winky_Rough/static/WinkyRough-LightItalic.ttf') format('truetype');
-            font-weight: 100;
-            font-style: italic;
-        }
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-Medium.woff2") format("woff2"), url("RobotoMono-Medium.woff") format("woff"), url("RobotoMono-Medium.ttf") format("truetype");
+}
 
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 300;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-Regular.woff2") format("woff2"), url("RobotoMono-Regular.woff") format("woff"), url("RobotoMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 500;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-SemiBold.woff2") format("woff2"), url("RobotoMono-SemiBold.woff") format("woff"), url("RobotoMono-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 500;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-SemiBoldItalic.woff2") format("woff2"), url("RobotoMono-SemiBoldItalic.woff") format("woff"), url("RobotoMono-SemiBoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 200;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-Thin.woff2") format("woff2"), url("RobotoMono-Thin.woff") format("woff"), url("RobotoMono-Thin.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 200;
+    src: url("fonts/Roboto_Mono/static/RobotoMono-ThinItalic.woff2") format("woff2"), url("RobotoMono-ThinItalic.woff") format("woff"), url("RobotoMono-ThinItalic.ttf") format("truetype");
+}
+        /* WINKY ROUGH */
+@font-face {
+    font-family: "Winky Rough";
+    font-style: normal;
+    font-weight: 800;
+    src: url("fonts/Winky_Rough/static/WinkyRough-Black.woff2") format("woff2"), url("WinkyRough-Black.woff") format("woff"), url("WinkyRough-Black.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: italic;
+    font-weight: 800;
+    src: url("fonts/Winky_Rough/static/WinkyRough-BlackItalic.woff2") format("woff2"), url("WinkyRough-BlackItalic.woff") format("woff"), url("WinkyRough-BlackItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: normal;
+    font-weight: 600;
+    src: url("fonts/Winky_Rough/static/WinkyRough-Bold.woff2") format("woff2"), url("WinkyRough-Bold.woff") format("woff"), url("WinkyRough-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: italic;
+    font-weight: 600;
+    src: url("fonts/Winky_Rough/static/WinkyRough-BoldItalic.woff2") format("woff2"), url("WinkyRough-BoldItalic.woff") format("woff"), url("WinkyRough-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: normal;
+    font-weight: 700;
+    src: url("fonts/Winky_Rough/static/WinkyRough-ExtraBold.woff2") format("woff2"), url("WinkyRough-ExtraBold.woff") format("woff"), url("WinkyRough-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: italic;
+    font-weight: 700;
+    src: url("fonts/Winky_Rough/static/WinkyRough-ExtraBoldItalic.woff2") format("woff2"), url("WinkyRough-ExtraBoldItalic.woff") format("woff"), url("WinkyRough-ExtraBoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: italic;
+    font-weight: 300;
+    src: url("fonts/Winky_Rough/static/WinkyRough-Italic.woff2") format("woff2"), url("WinkyRough-Italic.woff") format("woff"), url("WinkyRough-Italic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: normal;
+    font-weight: 100;
+    src: url("fonts/Winky_Rough/static/WinkyRough-Light.woff2") format("woff2"), url("WinkyRough-Light.woff") format("woff"), url("WinkyRough-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: italic;
+    font-weight: 100;
+    src: url("fonts/Winky_Rough/static/WinkyRough-LightItalic.woff2") format("woff2"), url("WinkyRough-LightItalic.woff") format("woff"), url("WinkyRough-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/Winky_Rough/static/WinkyRough-Medium.woff2") format("woff2"), url("WinkyRough-Medium.woff") format("woff"), url("WinkyRough-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: italic;
+    font-weight: 400;
+    src: url("fonts/Winky_Rough/static/WinkyRough-MediumItalic.woff2") format("woff2"), url("WinkyRough-MediumItalic.woff") format("woff"), url("WinkyRough-MediumItalic.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: normal;
+    font-weight: 300;
+    src: url("fonts/Winky_Rough/static/WinkyRough-Regular.woff2") format("woff2"), url("WinkyRough-Regular.woff") format("woff"), url("WinkyRough-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: normal;
+    font-weight: 500;
+    src: url("fonts/Winky_Rough/static/WinkyRough-SemiBold.woff2") format("woff2"), url("WinkyRough-SemiBold.woff") format("woff"), url("WinkyRough-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Winky Rough";
+    font-style: italic;
+    font-weight: 500;
+    src: url("fonts/Winky_Rough/static/WinkyRough-SemiBoldItalic.woff2") format("woff2"), url("WinkyRough-SemiBoldItalic.woff") format("woff"), url("WinkyRough-SemiBoldItalic.ttf") format("truetype");
+}
         /* ==========================================================================
    2. GENERAL LAYOUT & BODY
    ========================================================================== */
@@ -69,8 +200,8 @@
 
         body {
             margin: 0;
-            font-family: "Roboto monoface", sans-serif;
-            font-weight: 100;
+            font-family: "Roboto Mono", sans-serif;
+            font-weight: 300;
             background: #f0f0f0;
             /* This MUST match the expanded header's height to prevent content from hiding. */
             padding-top: 160px;
@@ -184,7 +315,7 @@
         .logo-area h1 {
             font-size: 2.5rem;
             margin-bottom: -0.5rem;
-            font-weight: 600;
+            font-weight: 300;
             transition: transform 0.35s ease-in-out;
             cursor: pointer;
         }
@@ -205,9 +336,9 @@
             margin-right: 3rem;
             color: black;
             text-decoration: none;
-            font-weight: 100;
+            font-weight: 300;
             font-size: 1.3rem;
-            font-family: "Roboto Monoface";
+            font-family: "Roboto Mono";
         }
 
         /* --- Right Side: Contact Area --- */
@@ -222,9 +353,9 @@
             max-height: 50px;
             color: black;
             text-decoration: none;
-            font-weight: 100;
+            font-weight: 300;
             font-size: 1.3rem;
-            font-family: "Roboto Monoface";
+            font-family: "Roboto Mono";
             transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
