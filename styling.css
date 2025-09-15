@@ -1,27 +1,27 @@
 @font-face {
             font-family: "Roboto Monoface";
-            src: url('/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
+            src: url('fonts/Roboto_Mono/static/RobotoMono-Regular.ttf') format('truetype');
             font-weight: 100;
             font-style: normal;
         }
 
         @font-face {
             font-family: "Roboto Monoface";
-            src: url('/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf') format('truetype');
+            src: url('fonts/Roboto_Mono/static/RobotoMono-Medium.ttf') format('truetype');
             font-weight: 400;
             font-style: normal;
         }
 
         @font-face {
             font-family: "Roboto Monoface";
-            src: url('/fonts/Roboto_Mono/static/RobotoMono-Light.ttf') format('truetype');
+            src: url('fonts/Roboto_Mono/static/RobotoMono-Light.ttf') format('truetype');
             font-weight: 300;
             font-style: normal;
         }
 
         @font-face {
             font-family: "Roboto Monoface";
-            src: url('/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf') format('truetype');
+            src: url('fonts/Roboto_Mono/static/RobotoMono-Bold.ttf') format('truetype');
             font-weight: 800;
             font-style: normal;
         }
@@ -29,35 +29,35 @@
         /* WINKY FACE */
         @font-face {
             font-family: "Winky Rough";
-            src: url('/fonts/Winky_Rough/static/WinkyRough-Bold.ttf') format('truetype');
+            src: url('fonts/Winky_Rough/static/WinkyRough-Bold.ttf') format('truetype');
             font-weight: 800;
             font-style: normal;
         }
 
         @font-face {
             font-family: "Winky Rough";
-            src: url('/fonts/Winky_Rough/static/WinkyRough-Medium.ttf') format('truetype');
+            src: url('fonts/Winky_Rough/static/WinkyRough-Medium.ttf') format('truetype');
             font-weight: 600;
             font-style: normal;
         }
 
         @font-face {
             font-family: "Winky Rough";
-            src: url('/fonts/Winky_Rough/static/WinkyRough-Medium.ttf') format('truetype');
+            src: url('fonts/Winky_Rough/static/WinkyRough-Medium.ttf') format('truetype');
             font-weight: 400;
             font-style: normal;
         }
 
         @font-face {
             font-family: "Winky Rough";
-            src: url('/fonts/Winky_Rough/static/WinkyRough-Light.ttf') format('truetype');
+            src: url('fonts/Winky_Rough/static/WinkyRough-Light.ttf') format('truetype');
             font-weight: 100;
             font-style: normal;
         }
 
         @font-face {
             font-family: "Winky Rough";
-            src: url('/fonts/Winky_Rough/static/WinkyRough-LightItalic.ttf') format('truetype');
+            src: url('fonts/Winky_Rough/static/WinkyRough-LightItalic.ttf') format('truetype');
             font-weight: 100;
             font-style: italic;
         }
