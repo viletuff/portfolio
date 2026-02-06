@@ -546,9 +546,7 @@ svg {
 .carousel-button--left { left: 3rem; }
 .carousel-button--right { right: 3rem; }
 
-/* ==========================================================================
-   LIGHTBOX STYLES (ADVANCED)
-   ========================================================================== */
+/*lightbox*/
 .lightbox-modal {
     display: none;
     position: fixed;
@@ -584,7 +582,7 @@ svg {
 .lightbox-image-container {
     position: relative;
     display: inline-block;
-    pointer-events: auto; /* Enable clicks */
+    pointer-events: auto;
     max-height: 75vh;
 }
 
@@ -608,7 +606,7 @@ svg {
     border-radius: 4px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    pointer-events: auto; /* Enable clicks */
+    pointer-events: auto; 
 }
 
 .lightbox-text h2 {
@@ -653,7 +651,7 @@ svg {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 80px; /* Wide clickable area */
+    width: 80px; 
     background: transparent;
     color: white;
     border: none;
@@ -662,7 +660,7 @@ svg {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.3; /* Slightly visible by default */
+    opacity: 0.3; 
     transition: opacity 0.2s, background 0.2s;
     user-select: none;
 }
