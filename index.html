@@ -3,119 +3,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Softer Lily | Home</title>
-    <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="styling.css">
      <link rel="icon" href="brand icons/plant.svg" type="image/x-icon">
-
-<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
+</head>
 <body>
-    <!-- Header: Stays at the top of the page -->
-    <div id="header-placeholder"> 
-    <meta charset="UTF-8">
-    <base href="/">  <link rel="stylesheet" href="styling.css">
+    <div id="header-placeholder"></div>
 
- 
-
-
-<header class="main-header">
-        <div class="header-container">
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden;">
-        <defs>
-            <!-- 
-              Added color-interpolation-filters="sRGB" for better color blending,
-              which contributes to a smoother appearance.
-            -->
-            <filter id="perlin-noise-filter" color-interpolation-filters="sRGB">
-                <!-- 
-                  feTurbulence generates Perlin noise. 
-                  The 'baseFrequency' controls the "waviness" of the noise.
-                  We animate this value to create the moving distortion effect.
-                -->
-                <feTurbulence type="fractalNoise" baseFrequency="0.005 0.009" numOctaves="14" result="noise" seed="0">
-                    <animate attributeName="baseFrequency" dur="5s" values="0.01 0.02; 0.008 0.012; 0.01 0.02" repeatCount="indefinite"></animate>
-                </feTurbulence>
-                <!--
-                  feDisplacementMap uses the generated noise to displace the pixels.
-                -->
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="13" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
-                <!--
-                  feGaussianBlur is now animated to create a pulsing blur effect.
-                  The 'stdDeviation' value loops between 0.5 and 1.5.
-                -->
-              
-            </filter>
-        </defs>
-    </svg>
-
-            
-            <div class="branding-nav-cluster">
-                <a href="/portfolio" style="text-decoration: none; color: inherit;">
-                    <div class="logo-area">
-                       
-                        <div class="logo">
-                <img src="portfolio/brand_icons/plant.svg">
-                        </div>
-                            
-                      
-                        <div class="logo-text">
-                            <h1 class="distortedText">Lily Ann Caballero</h1>
-                            <h2>illustrator</h2>
-                        </div>
-                    </div>
-                </a>
-                <nav class="main-nav">
-                    <a href="/portfolio/about.html">About</a>
-                    <a href="/portfolio/completed.html">Completed</a>
-                    <a href="/portfolio/line.html">Linework</a>
-                </nav>
-            </div>
-
-            <div class="contact-area">
-                <p>Contact</p>
-                <div class="icon-grid">
-                    <a href="https://softerlily.artstation.com" aria-label="artstation"><img src="portfolio/brand_icons/artstation.png" alt="Artstation" title="softerlily.artstation.com"></a>
-                    <a href="https://instagram.com/softerlily" aria-label="instagram"><img src="portfolio/brand_icons/instagram.svg" alt="Instagram" title="instagram.com/softerlily"></a>
-                    <a href="mailto:example@gmail.com" aria-label="softerlily@gmail.com"><img src="portfolio/brand_icons/mail.svg" alt="Email" title="softerlily@gmail.com"></a>
-                    <a href="https://softerlily.bsky.social" aria-label="softerlily.bsky.social"><img src="portfolio/brand_icons/bsky.svg" alt="Bluesky" title="softerlily.bsky.social"></a>
-                </div>
-            </div>
-        </div>
-    </header></div>
-
-    <!-- Main Content Area -->
     <main>
-        <!-- New Carousel Structure -->
         <div class="carousel">
             <div class="carousel-container">
-                <ul class="carousel-track" style="transition: transform 0.5s ease-in-out; transform: translateX(-1086px);"><li class="carousel-slide" aria-hidden="true">
-                        <img src="/portfolio/art/featured/vampire.jpg" 
-         alt="Painting of Vampire"
-         data-title="Vampire"
-         data-story="Character Exploration">
+                <ul class="carousel-track">
+                    <li class="carousel-slide">
+                        <img src="/portfolio/artfeatured/vampire.jpg" 
+                             data-full-res="/portfolio/artfeatured/vampire.jpg"
+                             alt="Painting of Vampire"
+                             data-title="Vampire"
+                             data-story="Character Exploration">
                     </li>
                     <li class="carousel-slide">
-                        <img src="/portfolio/art/featured/tiefling.jpg" alt="Born the Tiefling"
-                        data-title="Tiefling"
-                    data-story="Character Exploration of Dnd Races">
-         
+                        <img src="/portfolio/artfeatured/tiefling.jpg" 
+                             alt="Born the Tiefling"
+                             data-title="Tiefling"
+                             data-story="Character Exploration of Dnd Races">
                     </li>
                     <li class="carousel-slide">
-                        <img src="/portfolio/art/featured/scared_elf.jpg" alt="Painting of Elf"
-                        data-title="Elf"
-         data-story="">
-         
+                        <img src="/portfolio/artfeatured/scared_elf.jpg" 
+                             alt="Painting of Elf"
+                             data-title="Elf"
+                             data-story="">
                     </li>
                     <li class="carousel-slide">
-                        <img src="/portfolio/art/featured/syril_head.jpg" alt="Painting of Witch"
-                        data-title="Syril the Witch"
-         data-story="Commission of Witch Character with the prompt from client: 'Syril is 20 years old and lives an isolated life, say for his familiar spider. He has a scar on his face from his first encountering with magic as a child.' ">
+                        <img src="/portfolio/artfeatured/syril_head.jpg" 
+                             alt="Painting of Witch"
+                             data-title="Syril the Witch"
+                             data-story="Commission of Witch Character.">
                     </li>
                     <li class="carousel-slide">
-                        <img src="/portfolio/art/featured/melted.jpg" alt="Monster Exploration"
-                        data-title="Monster Exploration"
-         data-story="Exploring creative face shapes for a villian monster character">
+                        <img src="/portfolio/artfeatured/melted.jpg" 
+                             alt="Monster Exploration"
+                             data-title="Monster Exploration"
+                             data-story="Exploring creative face shapes for a villain monster character">
                     </li>
-                  
                 </ul>
             </div>
             <button class="carousel-button carousel-button--left">❮</button>
@@ -123,19 +51,6 @@
         </div>
     </main>
 
-    <!-- Footer -->
-  
-
-   
-
- <div id="footer-placeholder"> <link rel="stylesheet" href="styling.css">
-<footer class="main-footer">
-        <p>Lily Caballero <span style="font-size:70%"> [cah-bah-yeh-doh]</span> | contact@softerlily.com</p>
-    </footer> </div>
- <script src="script.js">
-        
-    </script>
-
-
-
-<div style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647; background: rgb(0, 0, 0); opacity: 0; transition: opacity 0.3s;"></div></body></html>
+ <div id="footer-placeholder"></div>
+ <script src="script.js"></script>
+</body></html>

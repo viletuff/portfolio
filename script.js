@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     // --- 1. Load Header and Footer ---
-    // This function fetches the content of an HTML file and places it into a target element.
     const loadHTML = (url, elementId) => {
         fetch(url)
             .then(response => response.text())
@@ -12,14 +11,10 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error loading HTML:', error));
     };
 
-    // Load the header into the div with id="header-placeholder"
     loadHTML('header.html', 'header-placeholder');
-    // Load the footer into the div with id="footer-placeholder"
     loadHTML('footer.html', 'footer-placeholder');
 
-
     // --- 2. Header Scroll Animation ---
-    // We need to wait a moment for the header to be loaded before we can add the scroll listener.
     setTimeout(() => {
         const header = document.querySelector('.main-header');
         if (header) {
@@ -31,20 +26,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         }
-    }, 100); // 100ms delay is usually enough
+    }, 100);
 });
 
-
-//Carosell
-  const carousel = document.querySelector('.carousel');
+// --- Carousel Logic ---
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.carousel');
     if (carousel) {
         const track = carousel.querySelector('.carousel-track');
         const slides = Array.from(track.children);
         const nextButton = carousel.querySelector('.carousel-button--right');
         const prevButton = carousel.querySelector('.carousel-button--left');
         
-        if (slides.length > 1) { // Only run if there's more than one slide
-            // --- Setup for Infinite Loop ---
+        if (slides.length > 1) {
             const firstClone = slides[0].cloneNode(true);
             const lastClone = slides[slides.length - 1].cloneNode(true);
 
@@ -56,18 +50,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
             const allSlides = Array.from(track.children);
             let slideWidth = slides[0].getBoundingClientRect().width;
-            let currentIndex = 1; // Start on the first "real" slide
+            let currentIndex = 1;
             let isAnimating = false;
 
-            // Function to set the initial position without animation
             const setInitialPosition = () => {
                 track.style.transition = 'none';
                 track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             };
             
-            setInitialPosition();
+            // Wait for images to load to get correct width
+            if(slides[0].querySelector('img').complete) {
+                setInitialPosition();
+            } else {
+                slides[0].querySelector('img').onload = setInitialPosition;
+            }
 
-            // --- Movement Functions ---
             const moveToNext = () => {
                 if (isAnimating) return;
                 isAnimating = true;
@@ -84,24 +81,18 @@ document.addEventListener("DOMContentLoaded", function() {
                 track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
             };
 
-            // --- The "Magic" Jump ---
-            // This function checks if we're on a cloned slide and jumps to the real one.
             track.addEventListener('transitionend', () => {
-                isAnimating = false; // Animation is complete
-                
-                // If we've moved to the cloned first slide (at the end)
+                isAnimating = false;
                 if (currentIndex === allSlides.length - 1) {
                     currentIndex = 1;
                     setInitialPosition();
                 }
-                // If we've moved to the cloned last slide (at the beginning)
                 if (currentIndex === 0) {
                     currentIndex = allSlides.length - 2;
                     setInitialPosition();
                 }
             });
 
-            // --- Autoplay and Event Listeners ---
             let autoPlay = setInterval(moveToNext, 10000);
 
             const resetAutoPlay = () => {
@@ -119,26 +110,31 @@ document.addEventListener("DOMContentLoaded", function() {
                 resetAutoPlay();
             });
 
-            // --- Responsive Handling ---
             window.addEventListener('resize', () => {
                 slideWidth = slides[0].getBoundingClientRect().width;
                 setInitialPosition();
             });
         }
     }
+});
 
- /* ==========================================================================
-   LIGHTBOX FUNCTIONALITY (WITH CLOSE BUTTON)
+/* ==========================================================================
+   LIGHTBOX FUNCTIONALITY (ADVANCED)
    ========================================================================== */
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Create the modal HTML (Now includes the close button)
+    // 1. Create the modal HTML
     const modal = document.createElement('div');
     modal.classList.add('lightbox-modal');
     modal.innerHTML = `
         <span class="close-btn">&times;</span>
         <div class="lightbox-content">
-            <img class="lightbox-image" src="" alt="Zoomed View">
+            <div class="lightbox-image-container">
+                <button class="lightbox-nav-btn lightbox-prev" style="display:none;">&#10094;</button>
+                <img class="lightbox-image" src="" alt="Zoomed View">
+                <button class="lightbox-nav-btn lightbox-next" style="display:none;">&#10095;</button>
+            </div>
             <div class="lightbox-text">
+                <span class="lightbox-counter"></span>
                 <h2 class="lightbox-title"></h2>
                 <p class="lightbox-story"></p>
             </div>
@@ -148,46 +144,104 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImg = modal.querySelector('.lightbox-image');
     const modalTitle = modal.querySelector('.lightbox-title');
     const modalStory = modal.querySelector('.lightbox-story');
+    const modalCounter = modal.querySelector('.lightbox-counter');
     const modalTextContainer = modal.querySelector('.lightbox-text');
     const closeBtn = modal.querySelector('.close-btn');
+    const prevBtn = modal.querySelector('.lightbox-prev');
+    const nextBtn = modal.querySelector('.lightbox-next');
 
-    // 2. Open Modal
+    let currentSet = [];
+    let currentSetIndex = 0;
+
+    // Helper to update the lightbox image when navigating a set
+    const updateLightboxImage = () => {
+        if (currentSet.length > 0) {
+            modalImg.src = currentSet[currentSetIndex];
+            
+            // Show/Hide buttons based on set length
+            const hasMultiple = currentSet.length > 1;
+            prevBtn.style.display = hasMultiple ? 'flex' : 'none';
+            nextBtn.style.display = hasMultiple ? 'flex' : 'none';
+
+             // Update counter text
+             if (hasMultiple) {
+                modalCounter.textContent = `Image ${currentSetIndex + 1} of ${currentSet.length}`;
+                modalCounter.style.display = 'block';
+            } else {
+                modalCounter.style.display = 'none';
+            }
+        }
+    };
+
+    // 2. Open Modal Logic
     document.body.addEventListener('click', (e) => {
         if (e.target.matches('.gallery img, .carousel-slide img')) {
             e.preventDefault();
+            const triggerImg = e.target;
             
-            modalImg.src = e.target.src; 
+            // Get Metadata
+            const title = triggerImg.getAttribute('data-title');
+            const story = triggerImg.getAttribute('data-story');
             
-            const title = e.target.getAttribute('data-title');
-            const story = e.target.getAttribute('data-story');
+            // 1. Check if this is a Multi-Image Set (Pipe Separated)
+            const gallerySetAttr = triggerImg.getAttribute('data-gallery-set');
+            
+            if (gallerySetAttr) {
+                // Split by '|' and trim whitespace
+                currentSet = gallerySetAttr.split('|').map(url => url.trim()).filter(u => u.length > 0);
+                currentSetIndex = 0; 
+            } else {
+                // 2. Single Image Logic
+                // Check if there is a separate full-res version
+                const fullRes = triggerImg.getAttribute('data-full-res');
+                currentSet = [fullRes || triggerImg.src];
+                currentSetIndex = 0;
+            }
 
+            // Update Text
             modalTitle.textContent = title || ""; 
             modalStory.textContent = story || "";
+            // Show text box if there is text OR if there are multiple images (for the counter)
+            modalTextContainer.style.display = (!title && !story && currentSet.length <= 1) ? 'none' : 'block';
 
-            if (!title && !story) {
-                modalTextContainer.style.display = 'none';
-            } else {
-                modalTextContainer.style.display = 'block';
-            }
+            // Render Image
+            updateLightboxImage();
 
             modal.style.display = 'flex';
             setTimeout(() => modal.classList.add('active'), 10);
         }
     });
 
+    // Navigation Click Handlers
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent closing modal
+        if (currentSet.length > 1) {
+            currentSetIndex = (currentSetIndex - 1 + currentSet.length) % currentSet.length;
+            updateLightboxImage();
+        }
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent closing modal
+        if (currentSet.length > 1) {
+            currentSetIndex = (currentSetIndex + 1) % currentSet.length;
+            updateLightboxImage();
+        }
+    });
+
     // 3. Close Function
     const closeModal = () => {
         modal.classList.remove('active');
-        setTimeout(() => modal.style.display = 'none', 300);
+        setTimeout(() => {
+            modal.style.display = 'none';
+            currentSet = []; // Reset
+        }, 300);
     };
 
-    // Close on "X" button click
     closeBtn.addEventListener('click', closeModal);
 
-    // Close on background click
     modal.addEventListener('click', (e) => {
-        // If the user clicks the dark background (modal) directly
-        if (e.target === modal) {
+        if (e.target === modal || e.target.classList.contains('lightbox-content')) {
             closeModal();
         }
     });
