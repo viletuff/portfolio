@@ -126,3 +126,69 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         }
     }
+
+ /* ==========================================================================
+   LIGHTBOX FUNCTIONALITY (WITH CLOSE BUTTON)
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Create the modal HTML (Now includes the close button)
+    const modal = document.createElement('div');
+    modal.classList.add('lightbox-modal');
+    modal.innerHTML = `
+        <span class="close-btn">&times;</span>
+        <div class="lightbox-content">
+            <img class="lightbox-image" src="" alt="Zoomed View">
+            <div class="lightbox-text">
+                <h2 class="lightbox-title"></h2>
+                <p class="lightbox-story"></p>
+            </div>
+        </div>`;
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector('.lightbox-image');
+    const modalTitle = modal.querySelector('.lightbox-title');
+    const modalStory = modal.querySelector('.lightbox-story');
+    const modalTextContainer = modal.querySelector('.lightbox-text');
+    const closeBtn = modal.querySelector('.close-btn');
+
+    // 2. Open Modal
+    document.body.addEventListener('click', (e) => {
+        if (e.target.matches('.gallery img, .carousel-slide img')) {
+            e.preventDefault();
+            
+            modalImg.src = e.target.src; 
+            
+            const title = e.target.getAttribute('data-title');
+            const story = e.target.getAttribute('data-story');
+
+            modalTitle.textContent = title || ""; 
+            modalStory.textContent = story || "";
+
+            if (!title && !story) {
+                modalTextContainer.style.display = 'none';
+            } else {
+                modalTextContainer.style.display = 'block';
+            }
+
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('active'), 10);
+        }
+    });
+
+    // 3. Close Function
+    const closeModal = () => {
+        modal.classList.remove('active');
+        setTimeout(() => modal.style.display = 'none', 300);
+    };
+
+    // Close on "X" button click
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+        // If the user clicks the dark background (modal) directly
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+});

@@ -217,11 +217,12 @@
         }
 
         .gallery img {
-            width: 100%;
-            display: block;
+            width: 80%;
+            display:flex;
             border-radius: 4px;
             transition: transform 0.2s ease-in-out;
             cursor: pointer;
+            box-shadow: 0 0 10px rgba(51, 51, 51, 0.3);
         }
 
         .main-footer {
@@ -470,7 +471,8 @@
         .gallery img:hover {
             transform: scale(1.003);
             /* Apply the animation WITH A DELAY to let the initial transition finish */
-            animation: idleAnimationGallery 2s ease-in-out 0.3s infinite;
+            animation: idleAnimationGallery 1.5s ease-in-out 0.4s infinite;
+           
         }
 
         /* --- Keyframe Animations --- */
@@ -483,6 +485,7 @@
             50% {
                 transform: scale(1.10);
             }
+            
         }
 
         @keyframes idleAnimationText {
@@ -575,7 +578,7 @@
 /* CAROSELL*/
 .carousel {
     position: relative;
-    max-width: 50%;
+    max-width: 70%;
     margin: 2rem auto;
     padding: 0 2rem;
     box-sizing: border-box;
@@ -610,6 +613,7 @@
     width: 100%;
     height: auto;
     display: block;
+    cursor: pointer;
     
 }
 
@@ -644,4 +648,104 @@
 
 .carousel-button--right {
     right: 3rem;
+}
+/* ==========================================================================
+   LIGHTBOX STYLES
+   ========================================================================== */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Prevents image from touching screen edges */
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.active {
+    opacity: 1;
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    width: 100%;
+    max-height: 90vh;
+    position: absolute;
+}
+
+.lightbox-image {
+    max-height: 70vh; /* Save room for text below */
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    border: 2px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.lightbox-text {
+    background: #f0f0f0; /* Matches your site background */
+    padding: 1.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 600px; /* Keep text readable width */
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.lightbox-text h2 {
+    margin: 0 0 0.5rem 0;
+    font-family: "Roboto Mono", sans-serif;
+    color: #333;
+}
+
+.lightbox-text p {
+    margin: 0;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+}
+/* Close Button (The "X") */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 3rem; /* Big and clickable */
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001; /* On top of everything */
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #ccc;
+}
+
+/* Fix for the "Invisible Box" issue: 
+   This ensures the container only takes up as much space as it needs,
+   so clicking outside the image actually registers as 'outside'. 
+*/
+.lightbox-content {
+    width: auto; /* Changed from 100% */
+    max-width: 900px;
+    background: transparent; /* Ensure no background color leaks */
+    pointer-events: none; /* Let clicks pass through empty areas */
+}
+
+/* Re-enable clicks on the actual image and text */
+.lightbox-image, .lightbox-text {
+    pointer-events: auto; 
 }
