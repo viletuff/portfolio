@@ -9,16 +9,9 @@
         <div class="header-container">
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden;">
         <defs>
-            <!-- 
-              Added color-interpolation-filters="sRGB" for better color blending,
-              which contributes to a smoother appearance.
-            -->
+         
             <filter id="perlin-noise-filter" color-interpolation-filters="sRGB">
-                <!-- 
-                  feTurbulence generates Perlin noise. 
-                  The 'baseFrequency' controls the "waviness" of the noise.
-                  We animate this value to create the moving distortion effect.
-                -->
+               
                 <feTurbulence 
                     type="fractalNoise" 
                     baseFrequency="0.005 0.009" 
@@ -33,9 +26,7 @@
                         repeatCount="indefinite"
                     />
                 </feTurbulence>
-                <!--
-                  feDisplacementMap uses the generated noise to displace the pixels.
-                -->
+              
                 <feDisplacementMap 
                     in="SourceGraphic" 
                     in2="noise" 
@@ -43,11 +34,7 @@
                     xChannelSelector="R" 
                     yChannelSelector="G" 
                 />
-                <!--
-                  feGaussianBlur is now animated to create a pulsing blur effect.
-                  The 'stdDeviation' value loops between 0.5 and 1.5.
-                -->
-              
+            
             </filter>
         </defs>
     </svg>
@@ -77,7 +64,7 @@
             </div>
 
             <div class="contact-area">
-                <p>Contact</p>
+                <p>Socials</p>
                 <div class="icon-grid">
                     <a href="https://softerlily.artstation.com" aria-label="artstation"><img src="portfolio/brand_icons/artstation.png" alt="Artstation" title="softerlily.artstation.com"></a>
                     <a href="https://instagram.com/softerlily" aria-label="instagram"><img src="portfolio/brand_icons/instagram.svg" alt="Instagram" title="instagram.com/softerlily"></a>
